@@ -1,0 +1,7 @@
+config.g.bak
+dwc-settings.json
+dwc2settings.json
+manifest.json.gz
+resurrect.g
+*.bin
+*.csv
