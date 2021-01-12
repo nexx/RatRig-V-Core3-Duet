@@ -6,7 +6,7 @@ The firmware is designed around the following hardware:
 * Slice Engineering Mosquito Magnum hotend
 * Bondtech BMG-M extuder
 * BLTouch v3.1 Z-probe
-* 0.9° Wantai 42BYGHM810 X/Y stepper motors
+* 1.8° LDO 42STH47-2504AC X/Y stepper motors
 * 1.8° LDO 42STH40-1684AC Z stepper motors
 * 0.9° LDO 42STH25-1404MAC E0 stepper motor
 * Keenovo 750W AC bed heater w/SSR
