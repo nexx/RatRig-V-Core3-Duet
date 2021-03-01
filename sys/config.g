@@ -15,12 +15,12 @@ M669 K1																; Select CoreXY kinematics
 ; Drives
 M569 P0.0 S1														; Drive 0 (CoreXY A) goes forwards
 M569 P0.1 S1														; Drive 1 (CoreXY B) goes forwards
-M569 P0.2 S0														; Drive 2 (Z1) goes backwards
-M569 P0.3 S0														; Drive 3 (Z2) goes backwards
-M569 P0.4 S0														; Drive 4 (Z3) goes backwards
-M569 P0.5 S0														; Drive 5 (E0) goes forwards
+M569 P0.2 S1														; Drive 2 (Z1) goes forwards
+M569 P0.3 S1														; Drive 3 (Z2) goes forwards
+M569 P0.4 S1														; Drive 4 (Z3) goes forwards
+M569 P0.5 S1														; Drive 5 (E0) goes forwards
 M584 X0.0 Y0.1 Z0.2:0.3:0.4 E0.5									; Driver 0=X, 1=Y, 2/3/4=Z, 5=E0
-M92 X80 Y80 Z400 E830												; Set steps/mm
+M92 X80 Y80 Z800 E830												; Set steps/mm
 M350 X16 Y16 Z16 E16 I1												; Configure micro-stepping with interpolation for all drives
 M203 X18000 Y18000 Z2400 E3600										; Set maximum speeds (mm/min)
 M201 X500 Y500 Z1000 E10000											; Set accelerations (mm/s^2)
