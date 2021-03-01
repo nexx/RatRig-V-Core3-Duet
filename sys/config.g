@@ -18,7 +18,7 @@ M569 P0.1 S1														; Drive 1 (CoreXY B) goes forwards
 M569 P0.2 S1														; Drive 2 (Z1) goes forwards
 M569 P0.3 S1														; Drive 3 (Z2) goes forwards
 M569 P0.4 S1														; Drive 4 (Z3) goes forwards
-M569 P0.5 S1														; Drive 5 (E0) goes forwards
+M569 P0.5 S0														; Drive 5 (E0) goes backwards
 M584 X0.0 Y0.1 Z0.2:0.3:0.4 E0.5									; Driver 0=X, 1=Y, 2/3/4=Z, 5=E0
 M92 X80 Y80 Z800 E830												; Set steps/mm
 M350 X16 Y16 Z16 E16 I1												; Configure micro-stepping with interpolation for all drives
@@ -39,9 +39,9 @@ M574 Y2 S1 P"io2.in"												; Use an endstop on Y, stop at low end
 ; BLTouch Z-Probe
 M574 Z1 S2															; Define Z endstop at a probe
 M950 S0 C"io7.out"													; Create a servo pin on io7
-M558 P5 C"io7.in" H0.5 F240 T18000 A5								; Set Z-Probe to type 5 for fast BLTouch mode, 0.5mm dive at 4mm/s 5 attempts
+M558 P5 C"io7.in" H1.0 F240 T18000 A5								; Set Z-Probe to type 5 for fast BLTouch mode, 0.5mm dive at 4mm/s 5 attempts
 
-G31 P25 X-29.75 Y-13.50 Z0.70										; Set Z probe trigger value, nozzle offsets, and trigger height
+G31 P25 X-29.75 Y-13.50 Z0.90										; Set Z probe trigger value, nozzle offsets, and trigger height
 M557 X5:280 Y5:285 P10												; Define a 10x10 bed mesh
 
 ; Heaters
@@ -53,7 +53,7 @@ M143 H0 S120														; Set temperature limit for Heater0 to 120C
 
 M308 S1 P"temp1" Y"thermistor" T500000 B4723 C1.19622e-7			; Define Sensor1 as Extruder0 temperature (Slice Engineering Thermistor)
 M950 H1 C"out1" T1													; Define Heater1 as Extruder0 heater, bind to Sensor1
-M307 H1 R2.794 C119.4:105.8 D3.09 S1.00 V24.1						; PID Tuning for Heater1, Extruder0 (200C)
+M307 H1 R2.794 C119.4:105.8 D3.09 S1.00 V24.1 B0					; PID Tuning for Heater1, Extruder0 (200C)
 M143 H1 S285														; Set temperature limit for heater 1 to 285C
 ;M308 S2 P"temp2" Y"thermistor" A"Chamber" T100000 B4725 C7.060000e-8; Define Sensor2 as Chamber temperature (Semitec 104GT2)
 M308 S3 Y"mcu-temp" A"MCU"											; Define Sensor3 as the integrated MCU temperature sensor
