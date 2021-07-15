@@ -21,16 +21,17 @@ M569 P0.4 S1														; Drive 4 (Z3) goes forwards
 M569 P0.5 S0														; Drive 5 (E0) goes backwards
 M584 X0.0 Y0.1 Z0.2:0.3:0.4 E0.5									; Driver 0=X, 1=Y, 2/3/4=Z, 5=E0
 M92 X80 Y80 Z800 E830												; Set steps/mm
-M350 X16 Y16 Z16 E16 I1												; Configure micro-stepping with interpolation for all drives
-M203 X18000 Y18000 Z2400 E3600										; Set maximum speeds (mm/min)
-M201 X500 Y500 Z1000 E10000											; Set accelerations (mm/s^2)
+M350 X16 Y16 Z16 I1													; Configure micro-stepping with interpolation for X, Y, and Z
+M350 E16 I0															; Configure micro-stepping without interpolation for E
+M203 X18000 Y18000 Z6000 E3600										; Set maximum speeds (mm/min)
+M201 X1500 Y1500 Z1000 E10000											; Set accelerations (mm/s^2)
 M566 X600 Y600 Z60 E1200											; Set maximum instantaneous speed changes (mm/min)
 M906 X1800 Y1800 Z1200 E700 I50										; Set motor currents (mA) and motor idle factor in per cent
 M84 S60																; Set idle timeout
 
 ; Axis Limits
 M208 X-11.4 Y-4.3 Z0 S1												; Set axes minima
-M208 X313.2 Y299.5 Z310 S0											; Set axes maxima
+M208 X313.2 Y299.5 Z340 S0											; Set axes maxima
 
 ; Endstops
 M574 X1 S1 P"io1.in"												; Use an endstop on X, stop at low end
